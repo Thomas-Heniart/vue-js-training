@@ -1,117 +1,130 @@
 <html>
 
 <head>
-  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-  <!-- Since there is already a rich ecosystem of ajax libraries    -->
-  <!-- and collections of general-purpose utility methods, Vue core -->
-  <!-- is able to remain small by not reinventing them. This also   -->
-  <!-- gives you the freedom to use what you're familiar with. -->
-  <script src="https://cdn.jsdelivr.net/npm/axios@0.12.0/dist/axios.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/lodash@4.13.1/lodash.min.js"></script>
-  <style type="text/css">
-    #app-11 .active {
-      color: greenyellow
-    }
+    <script src="course_resources/vue.js"></script>
+    <!-- Since there is already a rich ecosystem of ajax libraries    -->
+    <!-- and collections of general-purpose utility methods, Vue core -->
+    <!-- is able to remain small by not reinventing them. This also   -->
+    <!-- gives you the freedom to use what you're familiar with. -->
+    <script src="course_resources/axios.min.js"></script>
+    <script src="course_resources/lodash.min.js"></script>
+    <style type="text/css">
+        #app-11 .active {
+            color: greenyellow
+        }
 
-    #app-11 .text-danger {
-      color: red
-    }
-  </style>
+        #app-11 .text-danger {
+            color: red
+        }
+    </style>
 </head>
 
 <body>
-  <!-- basic example -->
-  <div id="app">
+<!-- basic example -->
+<div id="app">
     <h1>display message</h1>
     <p>{{ message }}</p>
-  </div>
+</div>
 
-  <!-- v-bin example -->
-  <div id="app-2">
+<!-- v-bin example -->
+<div id="app-2">
     <h1>v-bind</h1>
     <span v-bind:title="message">
       Hove your mouse over me for a few seconds to see my dynamically bound title!
     </span>
-  </div>
+</div>
 
-  <div id="app-3">
+<div id="app-3">
     <h1>v-if</h1>
     <span v-if="seen">Now you see me</span>
-  </div>
+</div>
 
-  <div id="app-4">
+<div id="app-4">
     <h1>v-for</h1>
     <ol>
-      <li v-for="todo in todos">
-        {{ todo.text }}
-      </li>
+        <li v-for="todo in todos">
+            {{ todo.text }}
+        </li>
     </ol>
-  </div>
+</div>
 
-  <div id="app-5">
+<div id="app-5">
     <h1>v-on:click</h1>
     <p>{{ message }}</p>
     <button type="button" name="button" v-on:click="reverseMessage">Reverse message</button>
-  </div>
+</div>
 
-  <div id="app-6">
+<div id="app-6">
     <h1>v-model</h1>
     <p>{{ message }}</p>
     <input type="text" v-model="message">
-  </div>
+</div>
 
-  <div id="app-7">
+<div id="app-7">
     <h1>v-for with component</h1>
     <ol>
-      <todo-item v-for="item in groceryList" v-bind:todo="item" v-bind:key="item.id">
-      </todo-item>
+        <todo-item v-for="item in groceryList" v-bind:todo="item" v-bind:key="item.id">
+        </todo-item>
     </ol>
     <p>Using mustaches: {{ rawHtml }}</p>
     <p>Using v-html directive: <span v-html="rawHtml"></span></p>
-  </div>
+</div>
 
-  <div id="app-8">
+<div id="app-8">
     <h1>Computed properties</h1>
     <p>Original message: {{ message }}</p>
     <p>Reverted message: {{ revertedMessage }}</p>
     <input type="text" v-on:model="message">
-  </div>
+</div>
 
-  <div id="app-9">
+<div id="app-9">
     <h1>Computed properties with get and set</h1>
     <p>{{ fullName }}</p>
-  </div>
+</div>
 
-  <div id="app-10">
+<div id="app-10">
     <h1>Watch properties</h1>
     <p>
-      Ask a yes/no question:
-      <input type="text" name="question" v-model="question">
+        Ask a yes/no question:
+        <input type="text" name="question" v-model="question">
     </p>
     <p>{{ answer }}</p>
-  </div>
+</div>
 
-  <div id="app-11">
+<div id="app-11">
     <h1>Bind classes</h1>
     <div v-bind:class='classObject'>
-      <p>Some text depending on class</p>
-      <button type="button" v-on:click='switchClasses'>Switch classes</button>
+        <p>Some text depending on class</p>
+        <button type="button" v-on:click='switchClasses'>Switch classes</button>
     </div>
-  </div>
+</div>
 
-  <div id="app-12">
+<div id="app-12">
     <h1>v-if and template</h1>
     <template v-if="loginType === 'username'">
-      <label>Username</label>
-      <input type="text" v-model="username" placeholder="Enter username">
+        <label>Username</label>
+        <input type="text" v-model="username" placeholder="Enter username">
     </template>
     <template v-else>
-      <label>Email</label>
-      <input type="text" v-model="login" placeholder="Enter email">
+        <label>Email</label>
+        <input type="text" v-model="login" placeholder="Enter email">
     </template>
     <button type="button" v-on:click='switchLoginType'>Login with {{ nextLoginType }}</button>
-  </div>
+</div>
 
-  <script src="index.js"></script>
+<div id="app-13">
+    <button-counter buttonName="First button"></button-counter>
+    <button-counter buttonName="Second button"></button-counter>
+</div>
+
+<div id="app-14">
+    <blog-post v-bind="{
+        id: 1,
+        title: 'My first blog post',
+        author: 'Thomas'
+    }">Content of my first blog post</blog-post>
+</div>
+
+<script src="index.js"></script>
 </body>
 </html>
